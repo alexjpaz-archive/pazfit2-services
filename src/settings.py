@@ -15,7 +15,6 @@ MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD','')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME','apitest')
 
 DATE_FORMAT='%Y-%m-%dT%H:%M:%S.%fZ'
-URL_PREFIX = 'api'
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
