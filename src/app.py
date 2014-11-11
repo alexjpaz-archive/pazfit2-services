@@ -4,23 +4,6 @@ from eve import Eve
 from flask import url_for, render_template, g
 app = Eve(settings=os.path.join(os.path.dirname(__file__), 'settings.py'))
 
-@app.route('/sheet')
-def sheet():
-	print g
-	values = {"version": 0}
-	return render_template('sheet/index.html')
-
-@app.route('/sheet/<name>')
-def sheet_index(name):
-	return render_template('sheet/{0}.html'.format(name))
-
-@app.context_processor
-def inject_environment():
-    return {
-		"version": 0
-	}
-
-
 class HooksRegistar():
 	def __init__(self, eveApp):
 		app.on_replace_log += self.on_replace_log
