@@ -4,12 +4,6 @@ from eve import Eve
 from flask import url_for, render_template, g
 app = Eve(settings=os.path.join(os.path.dirname(__file__), 'settings.py'))
 
-
-@app.route('/')
-def index():
-	return render_template('index.html')
-
-
 @app.route('/sheet')
 def sheet():
 	print g
@@ -19,7 +13,6 @@ def sheet():
 @app.route('/sheet/<name>')
 def sheet_index(name):
 	return render_template('sheet/{0}.html'.format(name))
-
 
 @app.context_processor
 def inject_environment():
