@@ -14,6 +14,10 @@ MONGO_USERNAME = os.environ.get('MONGO_USERNAME', '')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD','')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME','apitest')
 
+X_DOMAINSCORS='*'
+X_HEADERSCORS='Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With'
+#X_EXPOSE_HEADERS=
+
 DATE_FORMAT='%Y-%m-%dT%H:%M:%S.%fZ'
 DEBUG = os.environ.get('DEBUG', False)
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
