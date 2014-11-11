@@ -1,0 +1,10 @@
+{
+	"schema": {
+		"date": {"type": "datetime" },
+		"press": { "type": "integer" },
+		"deadlift": { "type": "integer" },
+		"bench": { "type": "integer" },
+		"squat": { "type": "integer" },
+		"meta" : { "type" : "dict" }
+	}
+}

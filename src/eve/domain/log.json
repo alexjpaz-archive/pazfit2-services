@@ -1,0 +1,10 @@
+{
+	"schema": {
+		"date": {"type": "datetime" },
+		"lift": { "type": "string" },
+		"reps": { "type": "integer" },
+		"weight": { "type": "integer" },
+		"calculated": {"type" : "dict" },
+		"meta" : { "type" : "dict" }
+	}
+}

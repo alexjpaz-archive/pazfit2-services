@@ -1,0 +1,3 @@
+TMP_DB_DIR=/tmp/pazfit2
+mkdir ${TMP_DB_DIR}
+docker run -d -p 27017:27017 -v ${TMP_DB_DIR}:/data/db --name mongodb dockerfile/mongodb
