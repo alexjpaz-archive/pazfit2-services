@@ -2,7 +2,8 @@ import pazfit_utils
 import os
 from eve import Eve
 from flask import url_for, render_template, g
-app = Eve(settings=os.path.join(os.path.dirname(__file__), 'settings.py'))
+SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settings.py')
+app = Eve(settings=SETTINGS_PATH)
 
 class HooksRegistar():
 	def __init__(self, eveApp):
