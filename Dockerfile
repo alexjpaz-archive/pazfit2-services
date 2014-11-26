@@ -11,4 +11,4 @@ RUN pip install -r /var/paz-fit2/requirements.txt
 
 ENTRYPOINT ["python","/var/paz-fit2/src/app.py"]
 
-EXPOSE [5000]
+EXPOSE 5000
