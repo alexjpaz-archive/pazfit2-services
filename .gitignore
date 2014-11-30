@@ -2,3 +2,8 @@ bower_components/
 node_modules/
 dist/
 .sass-cache/
+src/eve5/
+bin/
+include/
+.Python
+lib/
