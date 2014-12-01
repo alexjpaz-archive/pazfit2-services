@@ -14,10 +14,7 @@ MONGO_USERNAME = os.environ.get('MONGO_USERNAME', '')
 MONGO_PASSWORD = os.environ.get('MONGO_PASSWORD','')
 MONGO_DBNAME = os.environ.get('MONGO_DBNAME','apitest')
 
-CACHE_CONTROL='max-age=1, must-revalidate'
-CACHE_EXPIRES=1
-
-IF_MATCH=False
+IF_MATCH= os.environ.get('IF_MATCH', True)
 
 X_DOMAINS='*'
 X_HEADERS='Accept, Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, Etag'
