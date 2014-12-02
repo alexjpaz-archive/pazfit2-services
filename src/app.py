@@ -6,7 +6,7 @@ SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settin
 app = Eve(settings=SETTINGS_PATH)
 
 def calc_repgoal(weight, max_weight):
-    return int(round(37-36*weight/max_weight+5))
+    return int(round(37-36*weight/(max_weight+5)))
 
 def calc_estimated_max(weight, reps):
     return weight*reps*0.0333+weight
