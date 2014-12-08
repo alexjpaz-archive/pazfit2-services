@@ -1,9 +1,10 @@
 import pazfit_utils
 import os
+import bcrypt
+from eve.auth import BasicAuth
 from eve import Eve
 from flask import url_for, render_template, g
 SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settings.py')
-app = Eve(settings=SETTINGS_PATH)
 
 def calc_repgoal(weight, max_weight):
     return int(round(37-36*weight/(max_weight+5)))
@@ -34,7 +35,6 @@ class HooksRegistar():
 
     def on_replace_max(self, updates, original):
         log_collection = app.data.driver.db['log']
-        print log_collection
 
         affected_logs = log_collection.find({"date": {"$gte": updates["date"] }})
 
@@ -49,7 +49,6 @@ class HooksRegistar():
 
 
     def log_do_calculations(self, log, effective_max=None):
-        print 'lolwtf4'
         if effective_max is None:
             effective_max = self.log_find_effective_max(log) 
 
@@ -62,15 +61,30 @@ class HooksRegistar():
                 "repgoal": calc_repgoal(log["weight"],max_weight),
                 }
 
-        print log["calculated"]
 
         return log
 
 
+class BCryptAuth(BasicAuth):
+    def check_auth(self, username, password, allowed_roles, resource, method):
+        print username, password
+        #self.set_request_auth_value(username)
+        return True
+        # use Eve's own db driver; no additional connections/resources are used
+     #accounts = app.data.driver.db['accounts']
+     #account = accounts.find_one({'username': username})
+     # set 'auth_field' value to the account's ObjectId
+      #(instead of _id, you might want to use ID_FIELD)
+     #if account and '_id' in account:
+         #self.set_request_auth_value(account['_id'])
+     #return account and \
+             #true
+             #bcrypt.hashpw(password, account['password']) == account['password']
 
-HooksRegistar(app)
 
 if __name__ == '__main__':
+    app = Eve(settings=SETTINGS_PATH, auth=BCryptAuth)
+    HooksRegistar(app)
     app.run(host=os.environ.get('PAZFIT2_SERVICES_BIND','0.0.0.0'))
 
 

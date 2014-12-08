@@ -16,6 +16,8 @@ MONGO_DBNAME = os.environ.get('MONGO_DBNAME','apitest')
 
 IF_MATCH= os.environ.get('IF_MATCH', True)
 
+AUTH_FIELD='user_id'
+
 X_DOMAINS='*'
 X_HEADERS='Accept, Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, Etag'
 X_EXPOSE_HEADERS='Cache-Control, Content-Language, Content-Type, Expires, Last-Modified, Pragma, Etag'

@@ -1,5 +1,5 @@
 Cerberus==0.7.2
--e git+https://github.com/nicolaiarocci/eve.git@a8a6cf6e3f50c4b8113728c95607ce3c1c970f4f#egg=Eve5
+-e git+https://github.com/nicolaiarocci/eve.git@a8a6cf6e3f50c4b8113728c95607ce3c1c970f4f#egg=Eve-origin/develop
 Events==0.2.1
 Flask==0.10.1
 Flask-PyMongo==0.3.0
